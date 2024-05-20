@@ -1,0 +1,30 @@
+﻿@page
+@model ProgramasRazor.Pages.Programa1Model
+@{
+    ViewData["Title"] = "Calculadora de IMC";
+}
+
+<div class="contenedor-titulo">
+    <h2>Calculadora de Índice de Masa Corporal (IMC)</h2>
+</div>
+
+<div class="contenedor">
+<form method="post">
+    <div>
+        <label for="Peso">Peso (kg):</label>
+        <input type="number" id="peso" name="peso" step="0.1" asp-for="peso" required />
+    </div>
+    <div>
+        <label for="Altura">Altura (m):</label>
+        <input type="number" id="altura" name="altura" step="0.01" asp-for="altura" required />
+    </div>
+    <button type="submit" class="btn"><span>Calcular IMC</span></button>
+</form>
+
+@if (Model.imc > 0)
+{
+    <h3>RESULTADO</h3>
+    <p><strong>Tu IMC es: </strong>@Model.imc</p>
+    <p><strong>Clasificación: </strong>@Model.clasificacion</p>
+}
+</div>

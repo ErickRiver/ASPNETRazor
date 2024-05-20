@@ -1,0 +1,26 @@
+﻿@page
+@model ProgramasRazor.Pages.Programa4Model
+@{
+    ViewData["Title"] = "Generador de Números Aleatorios";
+}
+<div class="contenedor-titulo">
+    <h2>Generador de Números Aleatorios</h2>
+</div>
+
+<div class="contenedor">
+<form method="post">
+        <button type="submit" class="btn"><span>Generar Números</span></button>
+</form>
+
+@if (Model.numeros != null && Model.numeros.Length > 0)
+{
+    <h3>Números Generados:</h3>
+    <p>@string.Join(", ", Model.numeros)</p>
+
+    <h3>RESULTADOS</h3>
+    <p><strong>Suma:</strong> @Model.suma</p>
+    <p><strong>Media Aritmética:</strong> @Model.media</p>
+    <p><strong>Moda:</strong> @string.Join(", ", Model.moda)</p>
+    <p><strong>Mediana:</strong> @Model.mediana</p>
+}
+</div>
