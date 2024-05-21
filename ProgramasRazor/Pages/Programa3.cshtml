@@ -33,11 +33,18 @@
         <button type="submit" class="btn"><span>Calcular</span></button>
 </form>
 
-@if (Model.resultado.HasValue)
-{
-    <div>
-        <h3>Resultado:</h3>
-            <p>(@Model.a * @Model.x + @Model.b * @Model.y) ^ @Model.n = @Model.resultado</p>
-    </div>
-}
+    @if (Model.resultado != null)
+    {
+        int iteracion = 1;
+        <h2>Resultado Final: @Model.resultado</h2>
+
+        <h3>Resultados Por Iteracion:</h3>
+        <ul>
+            @foreach (var resultadoIntermedio in Model.resultadosIntermedios)
+            {
+                <li>Iteracion @iteracion: @resultadoIntermedio</li>
+                iteracion++;
+            }
+        </ul>
+    }
 </div>
